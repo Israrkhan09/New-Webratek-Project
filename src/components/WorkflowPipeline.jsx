@@ -78,7 +78,7 @@ export default function WorkflowPipeline() {
     const totalHorizontalScroll = (STEPS.length - 1) * 100
 
     const isMobile = typeof window !== 'undefined' && window.innerWidth < 1024
-    const multiplier = isMobile ? 12 : 100
+    const multiplier = isMobile ? 16 : 100
     const scrubValue = isMobile ? 0.6 : 1
 
     const ctx = gsap.context(() => {
