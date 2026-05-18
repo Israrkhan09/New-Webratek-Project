@@ -106,7 +106,7 @@ export default function Reviews() {
           </div>
 
           {/* Heading - Always Centered */}
-          <h2 className="text-[55px] lg:text-[65px] font-bold text-gray-900 leading-[1.0] lg:leading-[0.9] tracking-tighter max-w-5xl text-left lg:text-center w-full">
+          <h2 className="text-[46px] lg:text-[65px] font-bold text-gray-900 leading-[1.0] lg:leading-[0.9] tracking-tighter max-w-5xl text-left lg:text-center w-full">
             Our Reviews
           </h2>
         </div>

@@ -78,8 +78,8 @@ export default function WorkflowPipeline() {
     const totalHorizontalScroll = (STEPS.length - 1) * 100
 
     const isMobile = typeof window !== 'undefined' && window.innerWidth < 1024
-    const multiplier = isMobile ? 16 : 100
-    const scrubValue = isMobile ? 0.6 : 1
+    const multiplier = isMobile ? 35 : 100
+    const scrubValue = isMobile ? 0.8 : 1
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
@@ -160,7 +160,7 @@ export default function WorkflowPipeline() {
                       {step.id}
                     </span>
                   </div>
-                  <h2 className="text-[55px] lg:text-[60px] font-semibold text-white leading-[1] tracking-tighter mb-6 lg:mb-12">
+                  <h2 className="text-[46px] lg:text-[60px] font-semibold text-white leading-[1] tracking-tighter mb-6 lg:mb-12">
                     {step.label}
                   </h2>
                   <div className="flex items-center gap-4 lg:gap-5">

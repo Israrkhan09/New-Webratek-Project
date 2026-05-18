@@ -31,7 +31,7 @@ export default function Footer() {
         {/* Top Section: CTA Inline */}
         <div className="mb-8 lg:mb-16">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 lg:gap-12">
-            <h2 className="text-[55px] lg:text-[72px] font-bold tracking-tight leading-[0.95] max-w-4xl">
+            <h2 className="text-[46px] lg:text-[72px] font-bold tracking-tight leading-[0.95] max-w-4xl">
               Let's build something <br /> amazing together
             </h2>
 

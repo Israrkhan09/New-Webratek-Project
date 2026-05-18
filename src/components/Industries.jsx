@@ -54,7 +54,7 @@ export default function Industries() {
           </div>
 
           {/* Center Heading */}
-          <h2 className="text-[55px] lg:text-[65px] font-bold text-gray-900 leading-[1.0] lg:leading-[0.85] tracking-tighter text-left lg:text-center whitespace-normal lg:whitespace-nowrap w-full">
+          <h2 className="text-[46px] lg:text-[65px] font-bold text-gray-900 leading-[1.0] lg:leading-[0.85] tracking-tighter text-left lg:text-center whitespace-normal lg:whitespace-nowrap w-full">
             Digital Industries
           </h2>
 

@@ -225,7 +225,7 @@ export default function GoalSection() {
 
           {/* Right Column: Massive Heading */}
           <div className="lg:col-span-9">
-            <h2 className="text-[55px] lg:text-[65px] font-bold text-gray-900 leading-[1.0] lg:leading-[0.9] tracking-tighter max-w-5xl">
+            <h2 className="text-[46px] lg:text-[65px] font-bold text-gray-900 leading-[1.0] lg:leading-[0.9] tracking-tighter max-w-5xl">
               Creative Digital Solutions
             </h2>
             <p className="text-gray-500 max-w-2xl text-[17px] leading-relaxed mt-8">

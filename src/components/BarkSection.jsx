@@ -24,7 +24,7 @@ export default function BarkSection() {
 
           {/* Right Column: Massive Heading */}
           <div className="lg:col-span-9">
-            <h2 className="text-[55px] lg:text-[65px] font-bold text-gray-900 leading-[1.0] lg:leading-[0.9] tracking-tighter whitespace-normal lg:whitespace-nowrap">
+            <h2 className="text-[46px] lg:text-[65px] font-bold text-gray-900 leading-[1.0] lg:leading-[0.9] tracking-tighter whitespace-normal lg:whitespace-nowrap">
               Exclusive Discount For Bark.Com
             </h2>
           </div>
