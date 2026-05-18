@@ -258,7 +258,7 @@ export default function Navbar() {
                             handleLinkClick(e, link.href)
                             closeMenu()
                           }}
-                          className="text-[32px] font-bold text-gray-900 leading-none tracking-tight hover:text-[#006a63] transition-colors inline-block duration-300 py-1"
+                          className="text-[30px] font-bold text-gray-900 leading-none tracking-tight hover:text-[#006a63] transition-colors inline-block duration-300 py-1"
                         >
                           {link.label}
                         </Link>
@@ -358,9 +358,10 @@ export default function Navbar() {
                           { label: 'Digital Marketing', href: '/digital-marketing' },
                           { label: 'Logo Designing', href: '/logo-designing' },
                           { label: 'App Development', href: '/app-development' },
+                          { label: 'AI', href: '/services' },
                         ].map((item, idx) => {
                           const itemStaggerDelay = isSubmenuAnimatingOut
-                            ? (4 - 1 - idx) * 0.05
+                            ? (5 - 1 - idx) * 0.05
                             : idx * 0.08 + 0.15;
 
                           return (
@@ -383,7 +384,7 @@ export default function Navbar() {
                                 onClick={() => {
                                   closeMenu();
                                 }}
-                                className="text-[32px] font-bold text-gray-900 hover:text-[#006a63] transition-colors inline-block duration-300 py-1"
+                                className="text-[30px] font-bold text-gray-900 hover:text-[#006a63] transition-colors inline-block duration-300 py-1"
                               >
                                 {item.label}
                               </Link>
