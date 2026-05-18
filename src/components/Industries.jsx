@@ -41,7 +41,7 @@ export default function Industries() {
       <div className="section-container">
 
         {/* Header - Centered Heading, Label Left, Description Right */}
-        <div className="relative mb-8 px-2 flex flex-col items-center min-h-[100px] justify-center">
+        <div className="relative mb-8 px-2 flex flex-col items-start lg:items-center min-h-[100px] justify-center">
 
           {/* Left Label - Absolute on Desktop */}
           <div className="lg:absolute lg:left-2 lg:top-1/2 lg:-translate-y-1/2 flex items-center gap-3 mb-4 lg:mb-0">
@@ -54,13 +54,13 @@ export default function Industries() {
           </div>
 
           {/* Center Heading */}
-          <h2 className="text-[52px] lg:text-[65px] font-bold text-gray-900 leading-[0.85] tracking-tighter text-center whitespace-nowrap">
+          <h2 className="text-[55px] lg:text-[65px] font-bold text-gray-900 leading-[1.0] lg:leading-[0.85] tracking-tighter text-left lg:text-center whitespace-normal lg:whitespace-nowrap w-full">
             Digital Industries
           </h2>
 
           {/* Right Description - Absolute on Desktop */}
-          <div className="lg:absolute lg:right-2 lg:top-1/2 lg:-translate-y-1/2 lg:text-right mt-4 lg:mt-0">
-            <p className="text-[17px] text-gray-500 leading-relaxed font-inter max-w-[300px]">
+          <div className="lg:absolute lg:right-2 lg:top-1/2 lg:-translate-y-1/2 text-left lg:text-right mt-4 lg:mt-0">
+            <p className="text-[17px] text-gray-500 leading-relaxed font-inter max-w-[300px] lg:mr-0 lg:ml-auto">
               We help businesses across 40+ industries with modern web solutions, branding, and digital growth.
             </p>
           </div>

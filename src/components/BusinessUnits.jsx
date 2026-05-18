@@ -96,7 +96,7 @@ export default function BusinessUnits() {
 
           {/* Right: Heading */}
           <div className="lg:col-span-9">
-            <h2 className="text-[65px] font-bold tracking-tighter text-gray-900 leading-[0.9] max-w-5xl">
+            <h2 className="text-[55px] lg:text-[72px] font-bold tracking-tighter text-gray-900 leading-[1.0] lg:leading-[0.9] max-w-5xl">
               {HEADING_WORDS.map((word, idx) => (
                 <span key={idx} className="inline-block mr-[0.2em] last:mr-0">
                   {word}

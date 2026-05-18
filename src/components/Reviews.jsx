@@ -90,11 +90,11 @@ function StarRating() {
 
 export default function Reviews() {
   return (
-    <section id="reviews" className="py-24 bg-[#F5F5F5]">
+    <section id="reviews" className="pt-12 pb-24 lg:py-24 bg-[#F5F5F5]">
       <div className="section-container">
 
         {/* Header - Label Left, Heading Centered */}
-        <div className="relative mb-20 px-2 flex flex-col items-center">
+        <div className="relative mb-10 lg:mb-20 px-2 flex flex-col items-start lg:items-center">
           {/* Label - Absolute on Desktop, Normal on Mobile */}
           <div className="lg:absolute lg:left-2 lg:top-1/2 lg:-translate-y-1/2 flex items-center gap-3 mb-6 lg:mb-0">
             <div className="w-5 h-5 rounded-full bg-gradient-to-br from-[#1FC7A6] to-[#0F766E] flex items-center justify-center text-white">
@@ -106,7 +106,7 @@ export default function Reviews() {
           </div>
 
           {/* Heading - Always Centered */}
-          <h2 className="text-[52px] lg:text-[65px] font-bold text-gray-900 leading-[0.9] tracking-tighter max-w-5xl text-center">
+          <h2 className="text-[55px] lg:text-[65px] font-bold text-gray-900 leading-[1.0] lg:leading-[0.9] tracking-tighter max-w-5xl text-left lg:text-center w-full">
             Our Reviews
           </h2>
         </div>

@@ -31,7 +31,7 @@ export default function Footer() {
         {/* Top Section: CTA Inline */}
         <div className="mb-8 lg:mb-16">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 lg:gap-12">
-            <h2 className="text-[52px] lg:text-[72px] font-bold tracking-tight leading-[0.95] max-w-4xl">
+            <h2 className="text-[55px] lg:text-[72px] font-bold tracking-tight leading-[0.95] max-w-4xl">
               Let's build something <br /> amazing together
             </h2>
 
@@ -50,7 +50,7 @@ export default function Footer() {
           {/* Quick Links */}
           <div className="lg:pr-6 lg:border-r lg:border-black flex-shrink-0">
             <p className="text-[14px] font-bold text-gray-400 uppercase tracking-widest mb-1">Quick links</p>
-            <div className="flex flex-wrap lg:flex-nowrap gap-x-6 gap-y-3">
+            <div className="grid grid-cols-3 gap-x-4 gap-y-4 lg:flex lg:flex-nowrap lg:gap-x-6 lg:gap-y-0">
               {[
                 { label: 'About', href: '/about' },
                 { label: 'Services', href: '/services' },
@@ -62,7 +62,7 @@ export default function Footer() {
                 <button
                   key={link.label}
                   onClick={() => handleLinkClick(link.href)}
-                  className="text-[16px] font-semibold text-black tracking-tight hover:text-[#006a63] transition-colors relative group normal-case whitespace-nowrap"
+                  className="text-[16px] font-semibold text-black tracking-tight hover:text-[#006a63] transition-colors relative group normal-case whitespace-nowrap text-left"
                 >
                   {link.label}
                   <span className="absolute bottom-[-4px] left-0 w-0 h-[2px] bg-[#006a63] transition-all duration-300 group-hover:w-full"></span>
@@ -117,7 +117,7 @@ export default function Footer() {
             <p className="text-sm font-medium text-gray-400 pl-1">Powered by Webratek</p>
           </div>
 
-          <h1 className="text-[80px] lg:text-[180px] font-black tracking-tighter text-gray-900 leading-[0.8] select-none pointer-events-none w-full lg:w-auto text-left">
+          <h1 className="text-[70px] sm:text-[64px] lg:text-[180px] font-black tracking-tighter text-gray-900 leading-[0.8] select-none pointer-events-none w-full lg:w-auto text-left whitespace-nowrap">
             SAY HELLO!
           </h1>
         </div>

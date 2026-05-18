@@ -22,7 +22,7 @@ export default function Hero() {
 
         {/* ── Heading ── */}
         <h1
-          className="flex flex-col items-center text-[52px] sm:text-6xl md:text-7xl font-bold leading-[1.1] mb-8 tracking-tight"
+          className="flex flex-col items-center text-[48px] sm:text-6xl md:text-7xl font-bold leading-[1.1] mb-8 tracking-tight"
           style={{ color: '#F5F5F5' }}
         >
           <span>Delivering Exceptional</span>

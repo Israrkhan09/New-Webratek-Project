@@ -148,18 +148,27 @@ export default function GoalSection() {
   const [zoomScale, setZoomScale] = useState(1)
   const modalRef = useRef(null)
 
+  const [isMobile, setIsMobile] = useState(false)
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 1024)
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
   const tab = TABS.find(t => t.id === active)
+  const imagesToShow = isMobile ? (tab?.portfolioImages || []).slice(0, 6) : (tab?.portfolioImages || [])
 
   // Slideshow Effect
   useEffect(() => {
     let interval;
     if (isPlaying && selectedIndex !== null) {
       interval = setInterval(() => {
-        setSelectedIndex(prev => prev < tab.portfolioImages.length - 1 ? prev + 1 : 0);
+        setSelectedIndex(prev => prev < imagesToShow.length - 1 ? prev + 1 : 0);
       }, 2500);
     }
     return () => clearInterval(interval);
-  }, [isPlaying, selectedIndex, tab.portfolioImages.length]);
+  }, [isPlaying, selectedIndex, imagesToShow.length]);
 
   // Fullscreen Handler
   const toggleFullscreen = async () => {
@@ -216,7 +225,7 @@ export default function GoalSection() {
 
           {/* Right Column: Massive Heading */}
           <div className="lg:col-span-9">
-            <h2 className="text-[52px] lg:text-[65px] font-bold text-gray-900 leading-[0.9] tracking-tighter max-w-5xl">
+            <h2 className="text-[55px] lg:text-[65px] font-bold text-gray-900 leading-[1.0] lg:leading-[0.9] tracking-tighter max-w-5xl">
               Creative Digital Solutions
             </h2>
             <p className="text-gray-500 max-w-2xl text-[17px] leading-relaxed mt-8">
@@ -253,9 +262,9 @@ export default function GoalSection() {
 
           {/* Image Grid */}
           <div className="w-full">
-            {tab.portfolioImages ? (
+            {imagesToShow && imagesToShow.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {tab.portfolioImages.map((img, idx) => (
+                {imagesToShow.map((img, idx) => (
                   <div
                     key={idx}
                     data-cursor-text="Enter"
@@ -263,9 +272,9 @@ export default function GoalSection() {
                     onClick={() => setSelectedIndex(idx)}
                   >
                     <img
-                      src={img}
-                      alt={`Portfolio ${idx + 1}`}
-                      className="w-full h-auto object-contain transition-transform duration-[1s] group-hover:scale-[1.1]"
+                       src={img}
+                       alt={`Portfolio ${idx + 1}`}
+                       className="w-full h-auto object-contain transition-transform duration-[1s] group-hover:scale-[1.1]"
                     />
                     {/* Subtle Grey Blur Overlay */}
                     <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none"></div>
@@ -309,7 +318,7 @@ export default function GoalSection() {
           <div className="absolute top-0 left-0 w-full p-4 flex justify-between items-center z-20 bg-gradient-to-b from-black/60 to-transparent" onClick={e => e.stopPropagation()}>
             {/* Counter */}
             <div className="text-white/70 text-[13px] font-medium tracking-widest pl-2 font-mono">
-              {selectedIndex + 1} / {tab.portfolioImages.length}
+              {selectedIndex + 1} / {imagesToShow.length}
             </div>
 
             {/* Tool Icons */}
@@ -368,7 +377,7 @@ export default function GoalSection() {
           {/* Navigation Arrows */}
           <button
             className="absolute left-0 top-1/2 -translate-y-1/2 w-16 h-24 flex items-center justify-center text-white/50 hover:text-white hover:bg-black/20 transition-all z-20 group"
-            onClick={(e) => { e.stopPropagation(); setZoomScale(1); setSelectedIndex(prev => prev > 0 ? prev - 1 : tab.portfolioImages.length - 1); }}
+            onClick={(e) => { e.stopPropagation(); setZoomScale(1); setSelectedIndex(prev => prev > 0 ? prev - 1 : imagesToShow.length - 1); }}
           >
             <div className="w-10 h-10 bg-black/40 flex items-center justify-center rounded group-hover:bg-black/60 transition-colors">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
@@ -377,7 +386,7 @@ export default function GoalSection() {
 
           <button
             className="absolute right-0 top-1/2 -translate-y-1/2 w-16 h-24 flex items-center justify-center text-white/50 hover:text-white hover:bg-black/20 transition-all z-20 group"
-            onClick={(e) => { e.stopPropagation(); setZoomScale(1); setSelectedIndex(prev => prev < tab.portfolioImages.length - 1 ? prev + 1 : 0); }}
+            onClick={(e) => { e.stopPropagation(); setZoomScale(1); setSelectedIndex(prev => prev < imagesToShow.length - 1 ? prev + 1 : 0); }}
           >
             <div className="w-10 h-10 bg-black/40 flex items-center justify-center rounded group-hover:bg-black/60 transition-colors">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
@@ -388,7 +397,7 @@ export default function GoalSection() {
           <div className="relative w-full max-w-5xl h-full p-12 flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
             <motion.img
               key={selectedIndex}
-              src={tab.portfolioImages[selectedIndex].replace('/half/', '/full/')}
+              src={imagesToShow[selectedIndex].replace('/half/', '/full/')}
               alt={`Full Project View ${selectedIndex + 1}`}
               className="max-w-full max-h-full object-contain cursor-grab active:cursor-grabbing"
               animate={{ scale: zoomScale }}

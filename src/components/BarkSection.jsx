@@ -24,7 +24,7 @@ export default function BarkSection() {
 
           {/* Right Column: Massive Heading */}
           <div className="lg:col-span-9">
-            <h2 className="text-[48px] lg:text-[65px] font-bold text-gray-900 leading-[0.9] tracking-tighter whitespace-nowrap">
+            <h2 className="text-[55px] lg:text-[65px] font-bold text-gray-900 leading-[1.0] lg:leading-[0.9] tracking-tighter whitespace-normal lg:whitespace-nowrap">
               Exclusive Discount For Bark.Com
             </h2>
           </div>
@@ -83,19 +83,19 @@ export default function BarkSection() {
           </div>
 
           {/* Right Side: Partner Privilege Image */}
-          <div className="lg:col-span-5 relative lg:-mt-16 flex items-center justify-center overflow-visible">
-            <div className="relative w-full scale-[1.3] origin-center overflow-visible">
+          <div className="lg:col-span-5 relative mt-16 lg:mt-0 lg:-mt-16 flex items-center justify-center overflow-visible">
+            <div className="relative w-full max-w-[380px] sm:max-w-[460px] lg:max-w-none scale-[1.1] lg:scale-[1.3] lg:origin-center overflow-visible mx-auto">
               <img
                 src={partnerPrivilegeImg}
                 alt="Bark.com Premium Partnership"
                 loading="eager"
                 fetchPriority="high"
-                className="relative z-10 w-full h-auto"
+                className="relative z-10 w-full h-auto mx-auto"
                 style={{ filter: 'drop-shadow(0 24px 32px rgba(0,0,0,0.18))' }}
               />
 
               {/* Floating Rating Badge */}
-              <div className="absolute bottom-4 left-[-16px] z-20 bg-white border border-gray-100 shadow-lg p-2 px-3 rounded-xl flex items-center gap-2 w-auto">
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 lg:left-[-16px] lg:translate-x-0 z-20 bg-white border border-gray-100 shadow-lg p-2 px-3 rounded-xl flex items-center gap-2 w-auto whitespace-nowrap">
                 <div className="w-7 h-7 rounded-lg bg-gray-900 flex items-center justify-center shrink-0">
                   <svg className="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />

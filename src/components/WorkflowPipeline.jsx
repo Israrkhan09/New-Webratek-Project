@@ -77,14 +77,18 @@ export default function WorkflowPipeline() {
 
     const totalHorizontalScroll = (STEPS.length - 1) * 100
 
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 1024
+    const multiplier = isMobile ? 3 : 100
+    const scrubValue = isMobile ? 0.15 : 1
+
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: trigger,
           start: "top top",
-          end: `+=${STEPS.length * 100}%`,
+          end: `+=${STEPS.length * multiplier}%`,
           pin: true,
-          scrub: 1,
+          scrub: scrubValue,
           anticipatePin: 1,
           onRefresh: (self) => {
             if (self.spacer) {
@@ -111,8 +115,8 @@ export default function WorkflowPipeline() {
             x: 60,
             scrollTrigger: {
               trigger: trigger,
-              start: `${i * 100}% top`,
-              end: `${(i + 1) * 100}% top`,
+              start: `${i * multiplier}% top`,
+              end: `${(i + 1) * multiplier}% top`,
               scrub: true,
               containerAnimation: tl,
             }
@@ -152,11 +156,11 @@ export default function WorkflowPipeline() {
                 {/* Left Column: Number + Main Heading + Subheading */}
                 <div className="flex flex-col items-start gap-4 lg:gap-0 w-full">
                   <div className="step-num mb-2 lg:-mb-6">
-                    <span className="text-[80px] lg:text-[220px] font-black text-white/[0.15] [-webkit-text-stroke:1px_rgba(255,255,255,0.08)] leading-[1] tracking-tighter inline-block ml-0 lg:-ml-2">
+                    <span className="text-[80px] lg:text-[220px] font-black text-white/[0.3] [-webkit-text-stroke:1px_rgba(255,255,255,0.15)] leading-[1] tracking-tighter inline-block ml-0 lg:-ml-2">
                       {step.id}
                     </span>
                   </div>
-                  <h2 className="text-[65px] font-semibold text-white leading-[1] tracking-tighter mb-6 lg:mb-12">
+                  <h2 className="text-[55px] lg:text-[60px] font-semibold text-white leading-[1] tracking-tighter mb-6 lg:mb-12">
                     {step.label}
                   </h2>
                   <div className="flex items-center gap-4 lg:gap-5">
