@@ -38,11 +38,38 @@ export default function ComponentsSection() {
         }
       });
 
-      // Top headings
-      tl.fromTo(textGroupRef.current.children,
-        { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, stagger: 0.1, ease: 'power3.out' }
+      // --- 3D Layered Text Animation ---
+      const [heading, subheading, button] = textGroupRef.current.children;
+      gsap.set([heading, subheading, button], { willChange: "transform, opacity" });
+
+      const textTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: textGroupRef.current,
+          start: "top 80%",
+          end: "bottom top",
+          scrub: 1.5
+        }
+      });
+
+      // Heading: slow movement (heavy)
+      textTl.fromTo(heading,
+        { y: 40, opacity: 0, scale: 0.95 },
+        { y: 0, opacity: 1, scale: 1, ease: "power2.out" },
+        0
+      )
+      // Subheading: medium speed
+      .fromTo(subheading,
+        { y: 80, opacity: 0, scale: 0.95 },
+        { y: 0, opacity: 1, scale: 1, ease: "power2.out" },
+        0
+      )
+      // Button: slightly faster
+      .fromTo(button,
+        { y: 120, opacity: 0, scale: 0.95 },
+        { y: 0, opacity: 1, scale: 1, ease: "power2.out" },
+        0
       );
+      // ---------------------------------
 
       // "COMPONENTS" letters - clean rise animation
       tl.fromTo(lettersRef.current,
@@ -57,25 +84,50 @@ export default function ComponentsSection() {
         0.2
       );
 
-      // Cards smooth floating animation (Staggered scrub)
-      gsap.fromTo(cardsRef.current,
+      // Cards Center-Out 3D Depth Animation
+      const cards = cardsRef.current.filter(Boolean);
+      gsap.set(cards, { willChange: "transform, opacity" });
+
+      // Ensure center cards naturally overlap outer ones for the 3D depth illusion
+      cards.forEach((card, i) => {
+        const col = i % 7;
+        const dist = Math.abs(col - 3);
+        gsap.set(card, { zIndex: 10 - dist });
+      });
+
+      gsap.fromTo(cards,
         {
           opacity: 0,
           y: 80,
+          scale: 0.9
         },
         {
           opacity: 1,
           y: 0,
+          scale: (i) => {
+            const col = i % 7;
+            const dist = Math.abs(col - 3);
+            if (dist === 0) return 1.05; // Center card pops out
+            if (dist === 1) return 1.0;
+            if (dist === 2) return 0.95;
+            return 0.9; // Outer cards recede
+          },
+          duration: 1.2,
           ease: "power3.out",
-          stagger: {
-            each: 0.15,
-            from: "start"
+          stagger: (i) => {
+            const col = i % 7;
+            const row = Math.floor(i / 7);
+            const dist = Math.abs(col - 3);
+            // Center animates first (0 delay), then radiates outward (+0.15s per step)
+            // Second row follows slightly after (+0.3s)
+            return (dist * 0.15) + (row * 0.3);
           },
           scrollTrigger: {
-            trigger: sectionRef.current,
+            trigger: cards[0]?.parentElement || sectionRef.current,
             start: "top 85%",
             end: "top 20%",
-            scrub: 1
+            scrub: false,
+            toggleActions: "play none none reverse"
           }
         }
       );
@@ -103,7 +155,7 @@ export default function ComponentsSection() {
           <p className="text-[1.1rem] md:text-[1.3rem] text-gray-500 mt-6 mb-10 font-medium">
             A curated collection of beautifully crafted React components.
           </p>
-          <button className="px-8 py-4 bg-[#F5F5F5] border border-gray-200 hover:bg-gray-100 transition-colors rounded-[14px] text-[15px] font-medium text-gray-700 shadow-sm relative z-20">
+          <button className="px-8 py-4 bg-gradient-to-b from-[#1FC7A6] via-[#1FC7A6] to-[#0A5A4D] border-none transition-all hover:scale-105 active:scale-95 rounded-[14px] text-[15px] font-bold text-white shadow-[inset_0_-4px_8px_rgba(0,0,0,0.3)] relative z-20">
             Browse Components
           </button>
         </div>
@@ -128,7 +180,7 @@ export default function ComponentsSection() {
             <div
               key={card.id}
               ref={el => cardsRef.current[idx] = el}
-              className="flex flex-col h-[240px] rounded-[24px] border border-gray-200 bg-white shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] overflow-hidden group hover:shadow-[0_12px_40px_-4px_rgba(0,0,0,0.1)] transition-shadow duration-300"
+              className="flex flex-col h-[240px] rounded-[24px] border border-gray-200 bg-white shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] overflow-hidden group hover:shadow-[0_12px_40px_-4px_rgba(0,0,0,0.1)] transition-shadow duration-300 opacity-0 will-change-transform relative"
             >
               <div className="flex-1 flex items-center justify-center p-4 bg-[#F5F5F5]/50 relative overflow-hidden">
 

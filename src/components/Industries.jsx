@@ -1,96 +1,97 @@
 const INDUSTRIES = [
-  { name: 'Engineering',    icon: 'https://webhyteimages.rightwebs.com/assets/images/elements/engineering.png' },
-  { name: 'Religion',       icon: 'https://webhyteimages.rightwebs.com/assets/images/elements/religion.png' },
-  { name: 'Financial',      icon: 'https://webhyteimages.rightwebs.com/assets/images/elements/financial.png' },
-  { name: 'Medical',        icon: 'https://webhyteimages.rightwebs.com/assets/images/elements/medical.png' },
-  { name: 'Communication',  icon: 'https://webhyteimages.rightwebs.com/assets/images/elements/communication.png' },
-  { name: 'Children',       icon: 'https://webhyteimages.rightwebs.com/assets/images/elements/children.png' },
+  { name: 'Engineering', icon: 'engineering.png' },
+  { name: 'Religion', icon: 'relegious.png' },
+  { name: 'Financial', icon: 'Finaincial.png' },
+  { name: 'Medical', icon: 'medical.png' },
+  { name: 'Communication', icon: 'communications.png' },
+  { name: 'Children', icon: 'children.png' },
 
-  { name: 'Construction',   icon: 'https://webhyteimages.rightwebs.com/assets/images/elements/construction.png' },
-  { name: 'Social',         icon: 'https://webhyteimages.rightwebs.com/assets/images/elements/social.png' },
-  { name: 'Insurance',      icon: 'https://webhyteimages.rightwebs.com/assets/images/elements/insurance.png' },
-  { name: 'Health',         icon: 'https://webhyteimages.rightwebs.com/assets/images/elements/health.png' },
-  { name: 'Entertainment',  icon: 'https://webhyteimages.rightwebs.com/assets/images/elements/entertainment.png' },
-  { name: 'Craft',          icon: 'https://webhyteimages.rightwebs.com/assets/images/elements/craft.png' },
+  { name: 'Construction', icon: 'construction.png' },
+  { name: 'Social', icon: 'social.png' },
+  { name: 'Insurance', icon: 'insurance.png' },
+  { name: 'Health', icon: 'health.png' },
+  { name: 'Entertainment', icon: 'entertainment .png' },
+  { name: 'Craft', icon: 'craft.png' },
 
-  { name: 'Technology',     icon: 'https://webhyteimages.rightwebs.com/assets/images/elements/technology.png' },
-  { name: 'Education',      icon: 'https://webhyteimages.rightwebs.com/assets/images/elements/education.png' },
-  { name: 'Consultation',   icon: 'https://webhyteimages.rightwebs.com/assets/images/elements/consultation.png' },
-  { name: 'Travel',         icon: 'https://webhyteimages.rightwebs.com/assets/images/elements/travel.png' },
-  { name: 'Environmental',  icon: 'https://webhyteimages.rightwebs.com/assets/images/elements/environmental.png' },
-  { name: 'Music',          icon: 'https://webhyteimages.rightwebs.com/assets/images/elements/music.png' },
+  { name: 'Technology', icon: 'technology.png' },
+  { name: 'Education', icon: 'education.png' },
+  { name: 'Consultation', icon: 'consultation.png' },
+  { name: 'Travel', icon: 'travel.png' },
+  { name: 'Environmental', icon: 'environment.png' },
+  { name: 'Music', icon: 'music.png' },
 
-  { name: 'Automotive',     icon: 'https://webhyteimages.rightwebs.com/assets/images/elements/automotive.png' },
-  { name: 'Resource',       icon: 'https://webhyteimages.rightwebs.com/assets/images/elements/resource.png' },
-  { name: 'Architectural',  icon: 'https://webhyteimages.rightwebs.com/assets/images/elements/architectural.png' },
-  { name: 'Matrimony',      icon: 'https://webhyteimages.rightwebs.com/assets/images/elements/religion.png' }, // Placeholder for matrimony if missing
-  { name: 'Fashion',        icon: 'https://webhyteimages.rightwebs.com/assets/images/elements/fashion.png' },
-  { name: 'Navigation',     icon: 'https://webhyteimages.rightwebs.com/assets/images/elements/navigation.png' },
+  { name: 'Automotive', icon: 'automotive.png' },
+  { name: 'Resource', icon: 'resource.png' },
+  { name: 'Architectural', icon: 'Architectural.png' },
+  { name: 'Matrimony', icon: 'marriage.png' },
+  { name: 'Fashion', icon: 'fashion.png' },
+  { name: 'Navigation', icon: 'navigation.png' },
 
-  { name: 'Catalogues',     icon: 'https://webhyteimages.rightwebs.com/assets/images/elements/social.png' }, // Placeholder
-  { name: 'Sports',         icon: 'https://webhyteimages.rightwebs.com/assets/images/elements/sports.png' },
-  { name: 'Food',           icon: 'https://webhyteimages.rightwebs.com/assets/images/elements/food.png' },
-  { name: 'Art',            icon: 'https://webhyteimages.rightwebs.com/assets/images/elements/art.png' },
-  { name: 'Spa',            icon: 'https://webhyteimages.rightwebs.com/assets/images/elements/spa.png' },
-  { name: 'News',           icon: 'https://webhyteimages.rightwebs.com/assets/images/elements/news.png' },
+  { name: 'Catalogues', icon: 'Catalogues.png' },
+  { name: 'Sports', icon: 'sports.png' },
+  { name: 'Food', icon: 'food.png' },
+  { name: 'Art', icon: 'art.png' },
+  { name: 'Spa', icon: 'spa.png' },
+  { name: 'News', icon: 'news.png' },
 ]
 
 export default function Industries() {
   return (
-    <section className="py-24 bg-[#F5F5F5]">
+    <section className="py-12 bg-[#F5F5F5]">
       <div className="section-container">
 
-        {/* Header - Balanced 3-Part Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20 px-2 items-start">
-          
-          {/* 1. Left Label (col-span-3) */}
-          <div className="lg:col-span-3 pt-6">
-            <div className="flex items-center gap-3">
-              <div className="w-5 h-5 rounded-full bg-black flex items-center justify-center text-white transition-transform duration-300">
-                <span className="text-[14px] leading-none mb-[2px]">+</span>
-              </div>
-              <span className="text-[14px] font-semibold text-black tracking-tight font-inter uppercase text-nowrap">
-                Industries We Serve
-              </span>
+        {/* Header - Centered Heading, Label Left, Description Right */}
+        <div className="relative mb-8 px-2 flex flex-col items-center min-h-[100px] justify-center">
+
+          {/* Left Label - Absolute on Desktop */}
+          <div className="lg:absolute lg:left-2 lg:top-1/2 lg:-translate-y-1/2 flex items-center gap-3 mb-4 lg:mb-0">
+            <div className="w-5 h-5 rounded-full bg-gradient-to-br from-[#1FC7A6] to-[#0F766E] flex items-center justify-center text-white">
+              <span className="text-[14px] font-bold leading-none">+</span>
             </div>
+            <span className="text-[14px] font-bold tracking-tight font-inter uppercase bg-gradient-to-br from-[#1FC7A6] to-[#0F766E] bg-clip-text text-transparent">
+              Industries We Serve
+            </span>
           </div>
 
-          {/* 2. Center Heading (col-span-5) */}
-          <div className="lg:col-span-5">
-            <h2 className="text-[48px] lg:text-[125px] font-bold text-gray-900 leading-[0.85] tracking-tighter">
-              Smart <br/> Solutions
-            </h2>
-          </div>
+          {/* Center Heading */}
+          <h2 className="text-[52px] lg:text-[65px] font-bold text-gray-900 leading-[0.85] tracking-tighter text-center whitespace-nowrap">
+            Digital Industries
+          </h2>
 
-          {/* 3. Right Description (col-span-4) */}
-          <div className="lg:col-span-4 pt-6 lg:pt-12 lg:pl-16">
-            <p className="text-[16px] lg:text-[18px] text-gray-500 leading-relaxed font-inter max-w-[300px]">
+          {/* Right Description - Absolute on Desktop */}
+          <div className="lg:absolute lg:right-2 lg:top-1/2 lg:-translate-y-1/2 lg:text-right mt-4 lg:mt-0">
+            <p className="text-[17px] text-gray-500 leading-relaxed font-inter max-w-[300px]">
               We help businesses across 40+ industries with modern web solutions, branding, and digital growth.
             </p>
           </div>
 
         </div>
 
-        {/* Grid - Clean Horizontal Layout (6 Columns Matching Reference) */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-10 px-4 lg:pl-16 justify-center justify-items-center">
-          {INDUSTRIES.map((ind, i) => (
-            <div
-              key={i}
-              className="flex items-center gap-3 group cursor-default lg:justify-self-center w-full max-w-[180px]"
-            >
-              <div className="w-8 h-8 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 mix-blend-multiply">
-                <img 
-                  src={ind.icon} 
-                  alt={ind.name} 
-                  className="w-full h-full object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 mix-blend-multiply"
-                  onError={(e) => { e.target.src = 'https://cdn-icons-png.flaticon.com/512/1067/1067555.png' }}
-                />
+        {/* Horizontal Infinite Carousel */}
+        <div className="relative w-full overflow-hidden mask-h-fade py-2 pause-on-hover">
+          <div
+            className="flex gap-6 animate-horizontal-ticker-reverse w-max"
+            style={{ animationDuration: '60s' }}
+          >
+            {[...INDUSTRIES, ...INDUSTRIES].map((ind, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-3 px-6 py-3 bg-white border border-gray-200 rounded-[5px] shadow-sm group cursor-default transition-all duration-300 hover:border-teal-200 hover:shadow-md"
+              >
+                <div className="w-7 h-7 shrink-0 flex items-center justify-center grayscale group-hover:grayscale-0 transition-all duration-300 group-hover:scale-110">
+                  <img
+                    src={`https://webhyteimages.rightwebs.com/assets/images/elements/${ind.icon}`}
+                    alt={ind.name}
+                    className="w-full h-full object-contain mix-blend-multiply"
+                    onError={(e) => { e.target.src = 'https://cdn-icons-png.flaticon.com/512/1067/1067555.png' }}
+                  />
+                </div>
+                <p className="text-[15px] font-bold text-gray-700 tracking-tight font-inter whitespace-nowrap group-hover:text-black transition-colors duration-300">
+                  {ind.name}
+                </p>
               </div>
-              <p className="text-[14px] lg:text-[15px] font-medium text-gray-700 tracking-tight font-inter transition-colors duration-300 group-hover:text-black">
-                {ind.name}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
       </div>

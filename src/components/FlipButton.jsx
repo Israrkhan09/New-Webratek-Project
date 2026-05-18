@@ -9,32 +9,34 @@ import { useState } from 'react';
  */
 export default function FlipButton({
   frontText = "Get In Touch",
-  backText = "Start Project",
+  backText = "Get In Touch",
   onClick,
   className = "",
-  borderClassName = "border-black/10",
-  isDark = false,
-  textSize = "text-xs sm:text-sm"
+  textSize = "text-[16px]",
+  bgColor = "bg-[#006a63]",
+  textColor = "text-white",
+  borderClassName = ""
 }) {
-  const bgColor = isDark ? "bg-black" : "bg-[#F5F5F5]";
-  const textColor = isDark ? "text-white" : "text-black";
-
   return (
-    <div
-      className={`group relative overflow-hidden h-[52px] w-[200px] cursor-pointer rounded-full ${bgColor} border ${borderClassName} ${className}`}
+    <button
+      className={`group relative overflow-hidden h-[54px] cursor-pointer rounded-full ${bgColor} transition-all duration-300 ${borderClassName} ${className}`}
       onClick={onClick}
     >
-      <div className="relative w-full h-full flex flex-col items-center justify-center pointer-events-none">
-        <span className={`absolute transform transition-all duration-[500ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:translate-y-[150%] group-hover:opacity-0 ${textColor} font-semibold uppercase tracking-wider ${textSize} select-none`}>
+      <div className="relative w-full h-full flex items-center justify-center px-6">
+        {/* Relative hidden text to provide natural width */}
+        <span className={`${textSize} font-bold invisible whitespace-nowrap`}>
+          {frontText.length > backText.length ? frontText : backText}
+        </span>
+
+        <span className={`absolute inset-0 w-full h-full flex items-center justify-center px-6 whitespace-nowrap transform transition-all duration-[500ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:translate-y-[150%] group-hover:opacity-0 ${textColor} font-bold ${textSize} select-none`}>
           {frontText}
         </span>
 
-        <span className={`absolute transform -translate-y-[150%] opacity-0 transition-all duration-[500ms] ease-[cubic-bezier(0.4,1.16,0.24,1)] group-hover:translate-y-0 group-hover:opacity-100 ${textColor} font-semibold uppercase tracking-wider ${textSize} select-none`}>
+        <span className={`absolute inset-0 w-full h-full flex items-center justify-center px-6 whitespace-nowrap transform -translate-y-[150%] opacity-0 transition-all duration-[500ms] ease-[cubic-bezier(0.4,1.16,0.24,1)] group-hover:translate-y-0 group-hover:opacity-100 ${textColor} font-bold ${textSize} select-none`}>
           {backText}
         </span>
-      </div>
 
-      <div className={`absolute inset-0 border ${isDark ? 'border-white/10' : 'border-black/5'} rounded-full pointer-events-none z-40`} />
-    </div>
+      </div>
+    </button>
   );
 }

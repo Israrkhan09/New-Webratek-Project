@@ -55,29 +55,23 @@ export default function ScramblePhrases() {
   }, [subIndex, index, isDeleting]);
 
   return (
-    <div className="inline-flex items-center justify-center w-full">
-      {/* 
-        Container for the text. 
-        We use a flex container with items-center and justify-end 
-        to ensure the text "pushes left" as it types towards the cursor.
-      */}
-      <div className="relative flex items-center justify-end h-[1.2em]">
-        
-        {/* The Typing Text */}
+    <div className="flex items-center justify-center min-h-[1.3em] w-full overflow-visible py-1">
+      <div className="relative text-center max-w-[90vw] sm:max-w-none">
+        {/* The Typing Text + Cursor in one flow */}
         <span 
-          style={{ color: '#F5F5F5' }}
-          className="whitespace-nowrap transition-all duration-75"
+          className="whitespace-normal sm:whitespace-nowrap transition-all duration-75 bg-gradient-to-r from-[#1FC7A6] to-[#0F766E] bg-clip-text text-transparent leading-[1.1]"
         >
           {PHRASES[index].substring(0, subIndex)}
         </span>
 
         {/* 
-          Fixed Blinking Cursor 
-          Positioned relatively to stay perfectly still while text moves.
+          Inline Blinking Cursor 
+          Now part of the natural text flow.
         */}
         <span 
-          className={`ml-1 w-[2px] h-[1em] md:h-[1.1em] bg-teal-primary transition-opacity duration-75
+          className={`inline-block ml-1 w-[2px] h-[0.9em] translate-y-[0.1em] transition-opacity duration-75
             ${blink ? 'opacity-100' : 'opacity-0'}`}
+          style={{ backgroundColor: '#1FC7A6' }}
         />
       </div>
     </div>

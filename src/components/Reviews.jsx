@@ -80,7 +80,7 @@ function StarRating() {
   return (
     <div className="flex gap-1 mb-4">
       {[...Array(5)].map((_, i) => (
-        <svg key={i} className="w-4 h-4" viewBox="0 0 20 20" fill="#000000">
+        <svg key={i} className="w-4 h-4" viewBox="0 0 20 20" fill="#FFC107">
           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
         </svg>
       ))}
@@ -93,26 +93,22 @@ export default function Reviews() {
     <section id="reviews" className="py-24 bg-[#F5F5F5]">
       <div className="section-container">
 
-        {/* Header - Split Layout (Matching Business Units) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20 px-2">
-          {/* Left Column: Label */}
-          <div className="lg:col-span-3 pt-6">
-            <div className="flex items-center gap-3">
-              <div className="w-5 h-5 rounded-full bg-black flex items-center justify-center text-white transition-transform duration-300">
-                <span className="text-[14px] leading-none mb-[2px]">+</span>
-              </div>
-              <span className="text-[14px] font-semibold text-black tracking-tight font-inter uppercase">
-                Client Testimonials
-              </span>
+        {/* Header - Label Left, Heading Centered */}
+        <div className="relative mb-20 px-2 flex flex-col items-center">
+          {/* Label - Absolute on Desktop, Normal on Mobile */}
+          <div className="lg:absolute lg:left-2 lg:top-1/2 lg:-translate-y-1/2 flex items-center gap-3 mb-6 lg:mb-0">
+            <div className="w-5 h-5 rounded-full bg-gradient-to-br from-[#1FC7A6] to-[#0F766E] flex items-center justify-center text-white">
+              <span className="text-[14px] font-bold leading-none">+</span>
             </div>
+            <span className="text-[14px] font-bold tracking-tight font-inter uppercase bg-gradient-to-br from-[#1FC7A6] to-[#0F766E] bg-clip-text text-transparent">
+              Client Testimonials
+            </span>
           </div>
 
-          {/* Right Column: Massive Heading */}
-          <div className="lg:col-span-9">
-            <h2 className="text-[48px] lg:text-[125px] font-bold text-gray-900 leading-[0.9] tracking-tighter max-w-5xl">
-              Our Reviews
-            </h2>
-          </div>
+          {/* Heading - Always Centered */}
+          <h2 className="text-[52px] lg:text-[65px] font-bold text-gray-900 leading-[0.9] tracking-tighter max-w-5xl text-center">
+            Our Reviews
+          </h2>
         </div>
 
         {/* Swiper */}
@@ -124,14 +120,15 @@ export default function Reviews() {
             loop={true}
             freeMode={true}
             speed={6000}
-            allowTouchMove={false}
+            allowTouchMove={true}
             breakpoints={{
               640:  { slidesPerView: 2 },
               1024: { slidesPerView: 3 },
             }}
             autoplay={{ 
               delay: 0, 
-              disableOnInteraction: false
+              disableOnInteraction: false,
+              pauseOnMouseEnter: false
             }}
             className="ticker-swiper"
           >
@@ -139,14 +136,16 @@ export default function Reviews() {
               <SwiperSlide key={i}>
                 <div className="review-card bg-white h-[320px] flex flex-col justify-between p-8">
                   {/* Decorative quote */}
-                  <span className="absolute top-5 right-6 text-7xl font-serif text-gray-100 leading-none select-none">
-                    "
+                  <span className="absolute top-5 right-6 text-8xl font-serif leading-none select-none bg-gradient-to-br from-[#1FC7A6] to-[#0F766E] bg-clip-text text-transparent opacity-30">
+                    &ldquo;
                   </span>
 
                   <div>
                     <StarRating />
                     <p className="text-gray-600 text-[14px] leading-relaxed relative z-10 line-clamp-4">
-                      "{r.text}"
+                      <span className="bg-gradient-to-br from-[#1FC7A6] to-[#0F766E] bg-clip-text text-transparent font-bold">"</span>
+                      {r.text}
+                      <span className="bg-gradient-to-br from-[#1FC7A6] to-[#0F766E] bg-clip-text text-transparent font-bold">"</span>
                     </p>
                   </div>
 

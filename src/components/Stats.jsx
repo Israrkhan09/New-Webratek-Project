@@ -29,10 +29,10 @@ function StatItem({ value, suffix, label, started }) {
   const count = useCountUp(value, 2200, started)
   return (
     <div className="flex flex-col items-center justify-center py-12 px-6 text-center">
-      <div className="text-4xl lg:text-5xl font-extrabold text-[#F5F5F5] mb-2">
+      <div className="text-4xl lg:text-5xl font-extrabold mb-2 bg-gradient-to-br from-[#1FC7A6] to-[#0F766E] bg-clip-text text-transparent">
         {count}{suffix}
       </div>
-      <p className="text-xs font-semibold uppercase tracking-widest text-[#F5F5F5]/60">{label}</p>
+      <p className="text-[13px] font-medium text-[#F5F5F5]/50 tracking-tight">{label}</p>
     </div>
   )
 }

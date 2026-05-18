@@ -10,7 +10,14 @@
   body {
     font-family: 'Inter', 'Inter Placeholder', sans-serif;
     color: #111827;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
+    width: 100%;
+    position: relative;
+  }
+  html {
+    overflow-x: hidden !important;
+    width: 100%;
+    position: relative;
   }
 
   body.modal-open header { display: none; }
@@ -45,21 +52,23 @@
     @apply inline-flex items-center justify-center gap-2
            px-7 py-3 rounded-full font-bold text-sm text-white uppercase tracking-wide
            transition-all duration-300 hover:scale-105 active:scale-95;
-    background: linear-gradient(135deg, #0d9e8e, #14b8a6);
-    box-shadow: 0 4px 20px rgba(14,158,142,0.35);
+    background: #006a63;
+    box-shadow: inset 0 -4px 8px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 20px rgba(31,199,166,0.35);
   }
   .btn-primary:hover {
-    box-shadow: 0 6px 28px rgba(14,158,142,0.55);
+    box-shadow: 0 6px 28px rgba(31,199,166,0.55);
   }
 
   .btn-outline {
     @apply inline-flex items-center justify-center gap-2
            px-7 py-3 rounded-full font-bold text-sm uppercase tracking-wide
-           border-2 border-teal-400 text-teal-700 bg-transparent
+           border-2 border-[#1FC7A6] text-[#0F766E] bg-transparent
            transition-all duration-300 hover:text-white;
   }
   .btn-outline:hover {
-    background: linear-gradient(135deg, #0d9e8e, #14b8a6);
+    background: linear-gradient(to bottom, #1FC7A6, #0A5A4D);
+    box-shadow: inset 0 -4px 8px rgba(0,0,0,0.3);
     border-color: transparent;
   }
 
@@ -67,12 +76,13 @@
     @apply inline-flex items-center justify-center gap-2
            px-5 py-2.5 rounded-full font-semibold text-sm
            transition-all duration-300;
-    color: #0d9e8e;
-    border: 1px solid rgba(20,184,166,0.4);
-    background: rgba(20,217,196,0.08);
+    color: #0F766E;
+    border: 1px solid rgba(31,199,166,0.4);
+    background: rgba(31,199,166,0.08);
   }
   .btn-ghost:hover {
-    background: linear-gradient(135deg, #0d9e8e, #14b8a6);
+    background: linear-gradient(to bottom, #1FC7A6, #0A5A4D);
+    box-shadow: inset 0 -4px 8px rgba(0,0,0,0.3);
     color: white;
     border-color: transparent;
   }
@@ -188,4 +198,52 @@
 /* ── Ticker Swiper (Linear Smooth Marquee) ── */
 .ticker-swiper .swiper-wrapper {
   transition-timing-function: linear !important;
+}
+
+/* ── Vertical Infinite Ticker ── */
+@keyframes vertical-ticker {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+.animate-vertical-ticker {
+  animation: vertical-ticker linear infinite;
+}
+
+.pause-on-hover:hover .animate-vertical-ticker {
+  animation-play-state: paused;
+}
+
+.mask-v-fade {
+  mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+}
+
+/* ── Horizontal Infinite Ticker ── */
+@keyframes horizontal-ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes horizontal-ticker-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-horizontal-ticker {
+  animation: horizontal-ticker linear infinite;
+}
+
+.animate-horizontal-ticker-reverse {
+  animation: horizontal-ticker-reverse linear infinite;
+}
+
+.pause-on-hover:hover .animate-horizontal-ticker,
+.pause-on-hover:hover .animate-horizontal-ticker-reverse {
+  animation-play-state: paused;
+}
+
+.mask-h-fade {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }

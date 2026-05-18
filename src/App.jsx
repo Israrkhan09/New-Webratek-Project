@@ -1,23 +1,56 @@
 import { useEffect, useState } from 'react'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import Lenis from 'lenis'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Navbar        from './components/Navbar'
-import Hero          from './components/Hero'
-import Stats         from './components/Stats'
-import BusinessUnits from './components/BusinessUnits'
-import BarkSection   from './components/BarkSection'
-import GoalSection   from './components/GoalSection'
-import Reviews       from './components/Reviews'
-import Industries    from './components/Industries'
-import CTASection    from './components/CTASection'
 import Footer        from './components/Footer'
 import Loader        from './components/Loader'
 import CustomCursor  from './components/CustomCursor'
-import ComponentsSection from './components/ComponentsSection'
+import Home          from './pages/Home'
+import Portfolio     from './pages/Portfolio'
+import ReviewsPage   from './pages/ReviewsPage'
+import ServicesPage  from './pages/ServicesPage'
+import WebDevelopment from './pages/WebDevelopment'
+import DigitalMarketing from './pages/DigitalMarketing'
+import LogoDesigning from './pages/LogoDesigning'
+import AppDevelopment from './pages/AppDevelopment'
+import ContactPage from './pages/ContactPage'
+
+// Helper to scroll to top on route change
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   // Loader & Scroll-reveal observer
   useEffect(() => {
+    // Prevent browser from automatically restoring scroll position on reload
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    // Initialize Lenis for smooth "water-like" scrolling
+    const lenis = new Lenis({
+      lerp: 0.08, // Adjust for water-like smoothness (lower is smoother/more delayed)
+      smoothWheel: true,
+    });
+
+    // Sync Lenis scroll with GSAP ScrollTrigger
+    lenis.on('scroll', ScrollTrigger.update);
+
+    // Use GSAP's ticker for requestAnimationFrame to ensure perfect sync
+    function updateLenis(time) {
+      lenis.raf(time * 1000);
+    }
+    gsap.ticker.add(updateLenis);
+    gsap.ticker.lagSmoothing(0);
+
     // Prevent scrolling while loading
     document.body.style.overflow = 'hidden';
     
@@ -40,29 +73,31 @@ function App() {
     return () => {
       clearTimeout(loaderTimer);
       observer.disconnect();
+      // Cleanup Lenis
+      gsap.ticker.remove(updateLenis);
+      lenis.destroy();
     }
   }, [])
 
   return (
-    <>
+    <Router>
+      <ScrollToTop />
       <CustomCursor />
       <Loader />
       <Navbar />
-      <main>
-        <Hero />
-        <div className="relative z-10 bg-[#0a0a0a]">
-          <Stats />
-          <BusinessUnits />
-          <ComponentsSection />
-          <BarkSection />
-          <GoalSection />
-          <Reviews />
-          <Industries />
-          <CTASection />
-        </div>
-      </main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/services" element={<ServicesPage />} />
+        <Route path="/web-development" element={<WebDevelopment />} />
+        <Route path="/digital-marketing" element={<DigitalMarketing />} />
+        <Route path="/logo-designing" element={<LogoDesigning />} />
+        <Route path="/app-development" element={<AppDevelopment />} />
+        <Route path="/reviews" element={<ReviewsPage />} />
+        <Route path="/contact-us" element={<ContactPage />} />
+      </Routes>
       <Footer />
-    </>
+    </Router>
   )
 }
 
