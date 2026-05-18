@@ -1554,7 +1554,7 @@ export default function Portfolio() {
                 transition={{ duration: 0.8 }}
               >
                 <p className="text-white text-sm tracking-widest mb-4 font-inter uppercase">Portfolio</p>
-                <h1 className="text-[42px] lg:text-[72px] font-bold text-white leading-[1.1] tracking-tighter mb-8">
+                <h1 className="text-[48px] lg:text-[72px] font-bold text-white leading-[1.1] tracking-tighter mb-8">
                   Showcasing Excellence In Every Project
                 </h1>
                 <p className="text-white/60 text-[17px] max-w-2xl leading-relaxed mb-10">
@@ -1606,7 +1606,7 @@ export default function Portfolio() {
 
             {/* Right Column: Massive Heading & Description */}
             <div className="lg:col-span-9">
-              <h2 className="text-[52px] lg:text-[65px] font-bold text-[#030303] leading-[0.9] tracking-tighter mb-10 max-w-5xl">
+              <h2 className="text-[48px] lg:text-[65px] font-bold text-[#030303] leading-[0.9] tracking-tighter mb-10 max-w-5xl">
                 Together With <span className="text-transparent [-webkit-text-stroke:1.5px_#030303] italic font-serif">Focused</span> Marketing Methods
               </h2>
               <p className="text-[#030303]/60 text-[17px] max-w-3xl leading-relaxed">

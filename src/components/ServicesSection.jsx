@@ -40,7 +40,7 @@ const ServicesSection = () => {
               key={index} 
               className={`bg-white rounded-3xl p-10 lg:p-14 transition-all duration-300 hover:shadow-xl ${service.className}`}
             >
-              <h2 className="text-[55px] font-semibold text-gray-900 mb-6 tracking-tighter uppercase">
+              <h2 className="text-[46px] lg:text-[55px] font-semibold text-gray-900 mb-6 tracking-tighter uppercase">
                 {service.title}
               </h2>
               

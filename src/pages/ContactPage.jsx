@@ -33,7 +33,7 @@ const ContactPage = () => {
                   <h1 className="text-[36px] lg:text-[64px] font-bold text-white leading-[1.1] tracking-tighter mb-6">
                     Get in <span className="text-transparent [-webkit-text-stroke:1.5px_#fff] italic font-serif">Touch</span> with Us
                   </h1>
-                  <p className="text-white/60 text-[15px] lg:text-[16px] max-w-2xl leading-relaxed">
+                  <p className="text-white/60 text-[17px] max-w-2xl leading-relaxed">
                     At Webratek, we are more than just a design agency — we are your strategic partner in crafting exceptional digital experiences. Our team is deeply committed to understanding your vision and transforming it into impactful, future-ready solutions. Whether you need a powerful website, distinctive brand identity, or a scalable application, we’re here to bring your ideas to life. Share your project details below and let’s create something remarkable together.
                   </p>
                 </motion.div>

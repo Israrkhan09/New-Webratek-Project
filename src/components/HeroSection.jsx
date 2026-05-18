@@ -23,7 +23,7 @@ const HeroSection = ({
           </span>
 
           {/* Main Heading - Tightened Line Height */}
-          <h1 className="text-white text-[36px] md:text-[52px] lg:text-[72px] font-bold leading-[1.1] tracking-tighter mb-4 max-w-[950px] mx-auto px-2">
+          <h1 className="text-white text-[48px] md:text-[52px] lg:text-[72px] font-bold leading-[1.1] tracking-tighter mb-4 max-w-[950px] mx-auto px-2">
             {title}
           </h1>
 
@@ -33,7 +33,7 @@ const HeroSection = ({
           </p>
 
           {/* Start Your Project Button */}
-          <div className="mb-2">
+          <div className="mb-[18px] md:mb-2">
             <FlipButton
               frontText="Start Your Project"
               backText="Start Your Project"
@@ -43,11 +43,11 @@ const HeroSection = ({
           </div>
 
           {/* Hero Image Showcase - Standardized Gap & Fixed to bottom */}
-          <div className="w-full max-w-[1200px] mx-auto transform translate-y-4">
+          <div className="w-[135%] md:w-full max-w-none md:max-w-[1200px] mx-auto transform translate-y-4 overflow-visible -mx-[17.5%] md:mx-auto flex justify-center">
             <img
               src={heroImage}
               alt="Hero Showcase"
-              className="w-full h-auto object-contain object-bottom drop-shadow-[0_20px_60px_rgba(0,0,0,0.45)] block"
+              className="w-full h-auto object-contain object-bottom drop-shadow-[0_20px_60px_rgba(0,0,0,0.45)] block scale-110 md:scale-100 origin-bottom transition-transform duration-300"
             />
           </div>
         </div>

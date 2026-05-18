@@ -82,7 +82,7 @@ const AppShowcase = () => {
             </div>
           </div>
           <div className="lg:w-[75%]">
-            <h2 className="text-[65px] font-bold text-gray-900 leading-[1] tracking-tighter mb-10">
+            <h2 className="text-[46px] lg:text-[65px] font-bold text-gray-900 leading-[1] tracking-tighter mb-10">
               Build Smart Apps
             </h2>
             <p className="text-gray-600 text-[17px] max-w-2xl leading-relaxed">

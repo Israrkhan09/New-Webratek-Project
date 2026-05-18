@@ -75,7 +75,7 @@ const TechCarousel = () => {
       </style>
 
       <div className="max-w-7xl mx-auto px-6 mb-16">
-        <h2 className="text-[48px] md:text-[65px] font-bold font-black text-gray-900 text-center tracking-tighter">
+        <h2 className="text-[46px] md:text-[65px] font-bold font-black text-gray-900 text-center tracking-tighter">
           Tech That Powers Us
         </h2>
       </div>
