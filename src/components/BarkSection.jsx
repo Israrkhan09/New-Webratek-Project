@@ -52,7 +52,7 @@ export default function BarkSection() {
             </div>
 
             {/* 3. Integrated Action Row */}
-            <div className="flex flex-col lg:flex-row items-start lg:items-center gap-10 pt-4">
+            <div className="flex flex-row flex-wrap items-center gap-4 sm:gap-6 lg:gap-10 pt-4">
               <FlipButton
                 frontText="Get In Touch"
                 backText="Let's Talk"
@@ -63,10 +63,10 @@ export default function BarkSection() {
               <div className="w-px h-10 bg-gray-200 hidden lg:block" />
 
               {/* Phone Section */}
-              <div className="flex flex-col">
+              <div className="flex flex-col shrink-0">
                 <a 
                   href="tel:2138783006" 
-                  className="group flex flex-col items-center justify-center border border-black/80 px-8 py-3 rounded-full hover:bg-black transition-all duration-300"
+                  className="group flex flex-col items-center justify-center border border-black/80 h-[54px] px-8 rounded-full hover:bg-black transition-all duration-300 shrink-0"
                 >
                   <p className="text-[9px] uppercase tracking-widest text-gray-500 font-bold group-hover:text-gray-300 transition-colors">Direct Assistance</p>
                   <div className="flex items-center gap-2 mt-0.5">
