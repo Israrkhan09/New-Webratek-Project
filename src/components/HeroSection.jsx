@@ -43,7 +43,7 @@ const HeroSection = ({
           </div>
 
           {/* Hero Image Showcase - Standardized Gap & Fixed to bottom */}
-          <div className="w-[135%] md:w-full max-w-none md:max-w-[1200px] mx-auto transform translate-y-4 overflow-visible -mx-[17.5%] md:mx-auto flex justify-center">
+          <div className="w-[135%] md:w-full max-w-none md:max-w-[1200px] relative left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:mx-auto transform translate-y-4 overflow-visible flex justify-center">
             <img
               src={heroImage}
               alt="Hero Showcase"
