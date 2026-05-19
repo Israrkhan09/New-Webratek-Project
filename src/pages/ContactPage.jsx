@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import FlipButton from '../components/FlipButton';
+import contactBannerRemoveBg from '../assets/contact-banner-removebg-preview.png';
 
 const ContactPage = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -43,9 +44,9 @@ const ContactPage = () => {
                 <div className="relative w-full max-w-[800px]">
                   <div className="absolute inset-0 bg-[#006a63]/20 blur-[120px] rounded-full" />
                   <img
-                    src="https://webhyteimages.rightwebs.com/assets/images/website%20category/contact-banner.png"
+                    src={contactBannerRemoveBg}
                     alt="Contact Webratek"
-                    className="relative z-10 w-full h-auto drop-shadow-2xl transform translate-y-0 will-change-transform"
+                    className="relative z-10 w-full h-auto transform translate-y-0 will-change-transform"
                     loading="eager"
                   />
                 </div>
