@@ -57,7 +57,7 @@ function App() {
     const loaderTimer = setTimeout(() => {
       document.body.style.overflow = 'auto';
       setIsLoading(false);
-    }, 2800);
+    }, 2000);
 
     const observer = new IntersectionObserver(
       entries => entries.forEach(e => {
